@@ -12,5 +12,7 @@ def reason(errorcode):
         return "Você não pode convidar você mesmo."
     elif errorcode == "MissingPermissions":
         return "Você não tem permissões para utilizar esse comando."
-    elif errorcode == "TypeNotSpecified":
-        return "Você não retornou um tipo valido."
+    elif errorcode == "GameNotFound":
+        return "Esse jogo não existe."
+    elif errorcode == 'UnknownError':
+        return 'ERROR'
