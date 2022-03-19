@@ -1,5 +1,6 @@
-# BridgeUtils
-AAAAAAAAAAAAAAAAAAAAAAAAAA POLAR
+# Bridge Utils
+Public arquive of Bridge Utils, Updates may take long to be published.
 
-
-# PUT THE TOKEN IN THE TOKEN.json FILE
+# 1.0 (FULL REVAMP)
+- Added all original commands
+- First Try at making a Elo Bot.
