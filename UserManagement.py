@@ -9,6 +9,8 @@ import asyncio
 import discord
 import json
 
+#test
+
 def Stats(client, GUILDS):
   @client.command(name='stats', guild_ids=GUILDS)
   async def stats(ctx, user: discord.Option(discord.Member, description=None, required=False, default=None)):
