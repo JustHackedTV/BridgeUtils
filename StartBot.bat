@@ -1,1 +1,2 @@
 python BridgeUtilsMain.py
+pause
