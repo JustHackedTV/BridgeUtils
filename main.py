@@ -1,16 +1,18 @@
-﻿import discord
+import discord
 import json
-import asynciofrom discord.ui import Button, View 
+import asyncio
+from KeepAlive import Reping
+from discord.ui import Button, View
+import random
 
+from modmail import modMail
 from error import ready
-from quitModule import quiter
 from underline import underline
 from banSys import UnbanSys
-from GamePlay import cancel, win, duel, play
 from reportSys import reportSys
 from torneio import TorneioCreate, TorneioGUI
-from UserManagement import Stats, Rename, Moderar, register
 from Div1Sys import ApplyDiv1
+from QueroJogar import WannaPlay
 
 #------------------------------------------------------
 
@@ -24,7 +26,14 @@ GUILDS = [813781490731188224]
 async def on_ready():
     ready()
     print("[Discord API] Ready.")
-    await client.change_presence(activity=None)
+    await client.change_presence(status=discord.Status.idle, activity=None)
+        
+
+@client.event
+async def on_message(message):
+    if "bridge" in message.content:
+        if random.randint(1, 100000) == 7:
+            await message.reply("PQP SEU CAGADO, TU PEGOU A CHANCE DE 1/100000 de receber esse mensagem, ou 0.001%")
 
 @client.command(name="live", guild_ids=GUILDS)
 async def LiveStream(ctx, link):
@@ -44,22 +53,16 @@ async def sobre(ctx):
     view.add_item(botao)
     await ctx.respond(embed=embed, view=view)
     
-
-quiter(client, GUILDS)
+modMail(client, GUILDS)
 underline(client, GUILDS)
 UnbanSys(client, GUILDS)
-cancel(client, GUILDS)
-win(client, GUILDS)
-duel(client, GUILDS)
-play(client, GUILDS)
 reportSys(client, GUILDS)
 TorneioCreate(client, GUILDS)
 TorneioGUI(client, GUILDS)
-Stats(client, GUILDS)
-Rename(client, GUILDS)
-Moderar(client, GUILDS)
-register(client, GUILDS)
 ApplyDiv1(client, GUILDS)
+WannaPlay(client, GUILDS)
+
+Reping()
 
 with open("token.json", "r") as f:
     load = json.load(f)
